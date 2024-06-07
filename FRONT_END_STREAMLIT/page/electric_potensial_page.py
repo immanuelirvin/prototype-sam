@@ -4,11 +4,10 @@ import requests
 import io
 from PIL import Image
 import streamlit as st
-from PIL import Image
 from tempfile import NamedTemporaryFile
-from PIL import Image
 import io
 import webbrowser
+import os
 
 LINK_BACKEND = "http://127.0.0.1:8000"
 
@@ -41,9 +40,9 @@ def tutorial_guide():
         # When the button is clicked, open the browser
         st.success("Redirecting to Global Solar Atlas...")
         webbrowser.open_new_tab("https://globalsolaratlas.info/map")
-
+    current_dir = os.path.dirname(os.path.abspath(__file__))
     # Display image from assets folder
-    st.image("assets/tutorial_gsr.jpg", caption="Tutorial How to Get GSR Data", use_column_width=True)
+    st.image(f"{current_dir}/assets/tutorial_gsr.jpg", caption="Tutorial How to Get GSR Data", use_column_width=True)
     
 def input_totalArea_GSR():
     # Create a text input field for float variables

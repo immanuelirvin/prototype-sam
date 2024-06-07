@@ -4,11 +4,10 @@ import requests
 import io
 from PIL import Image
 import streamlit as st
-from PIL import Image
 from tempfile import NamedTemporaryFile
-from PIL import Image
 import io
 import webbrowser
+import os
 
 LINK_BACKEND = "http://127.0.0.1:8000"
 
@@ -26,15 +25,16 @@ def tutorial_guide():
     step2 = "<span style='font-size:1rem;color:yellow'><b>Next, design an interactive map interface in Google Colab. Start by importing libraries that enable map creation and interaction. Then, add features like a tool to draw rectangles and an option to delete layers to make sure users can easily clear all drawn elements to fix mistakes. These features enhance user experience and make map creation and editing more efficient (to enlarge the interactive map, use the mouse to scroll).</b></span>"
     step3 = "<span style='font-size:1rem;color:orange'><b>Lastly, enable users to download a sample image onto Google Colab. Add functionality to initiate the download process and specify where the image should be saved within the Colab environment. Include a waiting period to ensure the image generation process completes before downloading. Allow flexibility in naming the downloaded image, and store it in the Colab folder for easy access throughout the session. This simplifies workflow and enhances productivity for users (use the sample image in application).</b></span>"
     
+    current_dir = os.path.dirname(os.path.abspath(__file__))
     st.markdown(f"{step1_header}", unsafe_allow_html=True)
     st.markdown(f"{step1}", unsafe_allow_html=True)
-    st.image("assets/google_collab_step1.jpg", caption="Setting up Dependencies", use_column_width=True)
+    st.image(f"{current_dir}/assets/google_collab_step1.jpg", caption="Setting up Dependencies", use_column_width=True)
     st.markdown(f"{step2_header}", unsafe_allow_html=True)
     st.markdown(f"{step2}", unsafe_allow_html=True)
-    st.image("assets/google_collab_step2.jpg", caption="Creating an Interactive Map", use_column_width=True)
+    st.image(f"{current_dir}/assets/google_collab_step2.jpg", caption="Creating an Interactive Map", use_column_width=True)
     st.markdown(f"{step3_header}", unsafe_allow_html=True)
     st.markdown(f"{step3}", unsafe_allow_html=True)
-    st.image("assets/google_collab_step3.jpg", caption="Downloading a Sample Image", use_column_width=True)
+    st.image(f"{current_dir}/assets/google_collab_step3.jpg", caption="Downloading a Sample Image", use_column_width=True)
 
     # Add a button
     if st.button("To proceed to Google Collabs (get data.tif) and complete the steps, Click Me"):
